@@ -95,10 +95,10 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
             GlobalScope.launch(context = Dispatchers.Main) {
                 println("launched coroutine 1")
                 Log.e("launched coroutine 1","launched coroutine 1")
-                repeat(8000) {
+                repeat(1000) {
                     scanBluetooth()
+                    delay(8000)
                     Log.d("Res ","Repeat")
-                    delay(7000)
                 }
             }
         }
@@ -349,7 +349,8 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                         val editor: SharedPreferences.Editor = sharedPreference.edit()
                         if(sharedPreferenceGetVersion==responseVersion)
                         {
-                            Toast.makeText(applicationContext,"Ver "+ sharedPreferenceGetVersion +" At " + currentDate.toString() ,Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(applicationContext,"Ver "+ sharedPreferenceGetVersion +" At " + currentDate.toString() ,Toast.LENGTH_SHORT).show()
+                            
                             //For Dev
 //                            val editor: SharedPreferences.Editor = sharedPreference.edit()
 //                            editor.clear()
@@ -379,6 +380,8 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                             }
                             editor.putString("defaultVersion", responseVersion)
                             editor.commit()
+
+                            Toast.makeText(applicationContext,"Ver "+ sharedPreferenceGetVersion +" At " + currentDate.toString() ,Toast.LENGTH_SHORT).show()
                         }
 
 //                        Log.e(" | Response Body | : ", response.body().toString() )
