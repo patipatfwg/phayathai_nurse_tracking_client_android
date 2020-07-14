@@ -15,9 +15,10 @@ class APIClient {
     companion object {
 
         val SOSOURL: String = "http://192.168.1.51/"
-        val SOSOFWGURL:String = "http://10.32.10.102/"
-        val PHAYATHAIURL:String = "http://192.168.100.1/"
+        val SOSOFWGURL:String = "http://10.32.10.71/"
+        val PHAYATHAIURL:String = "http://10.32.14.81/"
         val MDCURL: String = "http://freewillmdc.loginto.me:56870/phayathaiv4/api/"
+
         val pathURL:String = "phayathai_nurse_tracking_backend/api/"
 
 //        val BASEURL: String = "http://192.168.1.51/phayathaiv3/api/"
@@ -36,7 +37,7 @@ class APIClient {
             .build()
 
         val client = Retrofit.Builder()
-            .baseUrl(SOSOURL+pathURL)
+            .baseUrl(SOSOFWGURL+pathURL)
             //.client(get.getUnsafeOkHttpClient())
             // .client(clientTimeout)
 

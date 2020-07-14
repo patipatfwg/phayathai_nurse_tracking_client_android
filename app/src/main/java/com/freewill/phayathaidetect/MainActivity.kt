@@ -95,10 +95,24 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
             GlobalScope.launch(context = Dispatchers.Main) {
                 println("launched coroutine 1")
                 Log.e("launched coroutine 1","launched coroutine 1")
-                repeat(1000) {
+                repeat(50000) {
                     scanBluetooth()
                     delay(8000)
-                    Log.d("Res ","Repeat")
+
+
+                    //
+                    val date = Date()
+                    val dateFormatWithZone =
+                        SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+                    val currentDate = dateFormatWithZone.format(date)
+                    Log.d("Res ","Call at "+currentDate)
+//                    Toast.makeText(
+//                        applicationContext,
+//                        "Call at " + currentDate.toString() ,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+
+                    //
                 }
             }
         }
@@ -381,7 +395,11 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                             editor.putString("defaultVersion", responseVersion)
                             editor.commit()
 
-                            Toast.makeText(applicationContext,"Ver "+ sharedPreferenceGetVersion +" At " + currentDate.toString() ,Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                applicationContext,
+                                "Ver "+ sharedPreferenceGetVersion +" At " + currentDate.toString() ,
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
 
 //                        Log.e(" | Response Body | : ", response.body().toString() )
